@@ -12,3 +12,52 @@ type WebSocketMessage struct {
 type ClientListPayload struct {
 	Clients []model.ClientInfo `json:"clients"`
 }
+
+// StartUploadPayload 客户端通知服务端开始上传文件
+type StartUploadPayload struct {
+	FileID      string `json:"fileId"`
+	FileName    string `json:"fileName"`
+	FileSize    int64  `json:"fileSize"`
+	TotalChunks int    `json:"totalChunks"`
+	TargetID    string `json:"targetId"`
+}
+
+// UploadChunkPayload 客户端上传文件块
+type UploadChunkPayload struct {
+	FileID  string `json:"fileId"`
+	ChunkID int    `json:"chunkId"`
+	Data    []byte `json:"data"`
+}
+
+// FileTransferRequestPayload 服务端通知接收方有文件待接收
+type FileTransferRequestPayload struct {
+	FileID   string `json:"fileId"`
+	FileName string `json:"fileName"`
+	FileSize int64  `json:"fileSize"`
+	FromID   string `json:"fromId"`
+}
+
+// FileTransferResponsePayload 接收方响应服务端的文件传输请求
+type FileTransferResponsePayload struct {
+	FileID string `json:"fileId"`
+	Accept bool   `json:"accept"`
+}
+
+// FileTransferReadyPayload 服务端通知接收方文件已准备好下载
+type FileTransferReadyPayload struct {
+	FileID      string `json:"fileId"`
+	DownloadURL string `json:"downloadUrl"`
+}
+
+// TransferProgressPayload 传输进度
+type TransferProgressPayload struct {
+	FileID   string `json:"fileId"`
+	Progress int    `json:"progress"` // 0-100
+	Speed    string `json:"speed"`    // e.g. "20kb/s"
+	Status   string `json:"status"`   // e.g. "ready_to_receive_chunks", "sending", "completed", "error"
+}
+
+// ErrorPayload 错误信息
+type ErrorPayload struct {
+	Message string `json:"message"`
+}
