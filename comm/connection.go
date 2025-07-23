@@ -195,6 +195,19 @@ func (m *WebSocketManager) Start() {
 	}
 }
 
+// Broadcast 向所有客户端广播消息
+func (m *WebSocketManager) Broadcast(message []byte) {
+	m.mutex.RLock()
+	defer m.mutex.RUnlock()
+	for _, client := range m.clients {
+		select {
+		case client.send <- message:
+		default:
+			// 如果通道已满，跳过
+		}
+	}
+}
+
 // registerClient 注册一个新的客户端
 func (m *WebSocketManager) registerClient(client *WebSocketClient) {
 	m.mutex.Lock()

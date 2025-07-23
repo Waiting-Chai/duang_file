@@ -1,0 +1,296 @@
+Starting deployment process...
+Cleaning up old containers and images...
+Pulling base images...
+1.20: Pulling from library/golang
+Digest: sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8526db21f7aebb0b0b4f18a
+Status: Image is up to date for golang:1.20
+docker.io/library/golang:1.20
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview golang:1.20
+Building duang-backend image...
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 350B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/golang:1.20
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.20
+#4 DONE 0.2s
+
+#5 [2/5] WORKDIR /app
+#5 DONE 2.2s
+
+#6 [internal] load build context
+#6 transferring context: 10.03kB 0.3s done
+#6 DONE 0.4s
+
+#7 [3/7] COPY go.mod go.sum ./
+#7 CACHED
+
+#8 [4/7] RUN go mod download && go mod verify
+#8 CACHED
+
+#9 [5/7] COPY . .
+#9 DONE 1.2s
+
+#10 [6/7] RUN go version && go env
+#10 2.603 go version go1.20.14 linux/amd64
+#10 4.969 GO111MODULE=""
+#10 4.969 GOARCH="amd64"
+#10 4.969 GOBIN=""
+#10 4.969 GOCACHE="/root/.cache/go-build"
+#10 4.969 GOENV="/root/.config/go/env"
+#10 4.969 GOEXE=""
+#10 4.969 GOEXPERIMENT=""
+#10 4.969 GOFLAGS=""
+#10 4.969 GOHOSTARCH="amd64"
+#10 4.969 GOHOSTOS="linux"
+#10 4.969 GOINSECURE=""
+#10 4.969 GOMODCACHE="/go/pkg/mod"
+#10 4.969 GONOPROXY=""
+#10 4.969 GONOSUMDB=""
+#10 4.969 GOOS="linux"
+#10 4.969 GOPATH="/go"
+#10 4.969 GOPRIVATE=""
+#10 4.969 GOPROXY="https://proxy.golang.org,direct"
+#10 4.969 GOROOT="/usr/local/go"
+#10 4.969 GOSUMDB="sum.golang.org"
+#10 4.969 GOTMPDIR=""
+#10 4.969 GOTOOLDIR="/usr/local/go/pkg/tool/linux_amd64"
+#10 4.969 GOVCS=""
+#10 4.969 GOVERSION="go1.20.14"
+#10 4.969 GCCGO="gccgo"
+#10 4.969 GOAMD64="v1"
+#10 4.969 AR="ar"
+#10 4.969 CC="gcc"
+#10 4.969 CXX="g++"
+#10 4.969 CGO_ENABLED="1"
+#10 4.969 GOMOD="/app/go.mod"
+#10 4.969 GOWORK=""
+#10 4.969 CGO_CFLAGS="-O2 -g"
+#10 4.969 CGO_CPPFLAGS=""
+#10 4.969 CGO_CXXFLAGS="-O2 -g"
+#10 4.969 CGO_FFLAGS="-O2 -g"
+#10 4.969 CGO_LDFLAGS="-O2 -g"
+#10 4.969 PKG_CONFIG="pkg-config"
+#10 4.969 GOGCCFLAGS="-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build896363770=/tmp/go-build -gno-record-gcc-switches"
+#10 DONE 5.2s
+
+#11 [7/7] RUN go build -v -o duang-backend main.go
+#11 18.71 internal/goarch
+#11 18.72 duang_file/model
+#11 18.72 internal/unsafeheader
+#11 18.74 internal/cpu
+#11 18.89 internal/coverage/rtcov
+#11 18.97 internal/goexperiment
+#11 19.04 internal/abi
+#11 19.17 internal/goos
+#11 19.24 runtime/internal/atomic
+#11 19.25 runtime/internal/math
+#11 19.49 runtime/internal/sys
+#11 19.68 runtime/internal/syscall
+#11 20.22 internal/race
+#11 20.28 sync/atomic
+#11 20.33 math/bits
+#11 20.37 internal/itoa
+#11 20.53 internal/bytealg
+#11 20.65 unicode/utf8
+#11 21.09 unicode
+#11 21.20 math
+#11 21.35 encoding
+#11 21.56 unicode/utf16
+#11 21.80 crypto/internal/alias
+#11 21.92 crypto/subtle
+#11 22.12 runtime
+#11 22.39 crypto/internal/boring/sig
+#11 22.57 container/list
+#11 24.51 vendor/golang.org/x/crypto/cryptobyte/asn1
+#11 24.81 internal/nettrace
+#11 24.94 vendor/golang.org/x/crypto/internal/alias
+#11 25.05 github.com/gin-gonic/gin/internal/bytesconv
+#11 25.14 golang.org/x/net/html/atom
+#11 25.26 github.com/go-playground/locales/currency
+#11 25.42 github.com/leodido/go-urn/scim/schema
+#11 25.56 github.com/pelletier/go-toml/v2/internal/characters
+#11 25.59 google.golang.org/protobuf/internal/flags
+#11 47.48 internal/reflectlite
+#11 47.54 sync
+#11 50.79 internal/testlog
+#11 50.79 internal/singleflight
+#11 50.79 internal/godebug
+#11 52.40 google.golang.org/protobuf/internal/pragma
+#11 52.49 runtime/cgo
+#11 52.52 math/rand
+#11 53.54 internal/intern
+#11 55.10 sort
+#11 55.27 errors
+#11 56.20 io
+#11 56.21 strconv
+#11 56.99 internal/oserror
+#11 57.46 syscall
+#11 58.78 bytes
+#11 61.54 reflect
+#11 62.01 internal/safefilepath
+#11 62.09 path
+#11 62.65 strings
+#11 82.02 bufio
+#11 84.03 internal/syscall/unix
+#11 84.41 time
+#11 85.11 internal/syscall/execenv
+#11 85.98 hash
+#11 86.81 crypto
+#11 87.05 crypto/internal/randutil
+#11 87.60 crypto/internal/nistec/fiat
+#11 91.02 crypto/rc4
+#11 91.28 vendor/golang.org/x/net/dns/dnsmessage
+#11 91.97 internal/poll
+#11 92.23 encoding/binary
+#11 95.91 encoding/base64
+#11 96.27 internal/fmtsort
+#11 96.57 io/fs
+#11 96.89 context
+#11 97.03 crypto/cipher
+#11 97.43 crypto/internal/edwards25519/field
+#11 97.48 crypto/md5
+#11 97.56 os
+#11 97.93 crypto/internal/boring
+#11 98.02 crypto/des
+#11 98.16 crypto/sha1
+#11 98.16 crypto/aes
+#11 98.38 embed
+#11 99.09 crypto/internal/nistec
+#11 99.33 crypto/sha512
+#11 99.46 crypto/internal/edwards25519
+#11 100.4 crypto/hmac
+#11 100.5 fmt
+#11 100.7 crypto/sha256
+#11 100.7 encoding/pem
+#11 101.3 net/netip
+#11 101.7 crypto/ecdh
+#11 101.8 path/filepath
+#11 102.8 vendor/golang.org/x/crypto/chacha20
+#11 103.0 vendor/golang.org/x/crypto/internal/poly1305
+#11 103.3 encoding/json
+#11 103.3 compress/flate
+#11 103.4 net
+#11 103.6 math/big
+#11 104.8 encoding/hex
+#11 105.0 net/url
+#11 106.0 io/ioutil
+#11 106.3 vendor/golang.org/x/sys/cpu
+#11 107.0 vendor/golang.org/x/crypto/chacha20poly1305
+#11 107.1 vendor/golang.org/x/crypto/hkdf
+#11 107.5 hash/crc32
+#11 108.8 vendor/golang.org/x/text/transform
+#11 109.1 compress/gzip
+#11 109.4 log
+#11 109.8 vendor/golang.org/x/text/unicode/norm
+Checking if port 8081 is in use...
+#11 110.5 vendor/golang.org/x/text/unicode/bidi
+#11 110.6 crypto/rand
+Port 8081 is available.
+Running duang-backend container on port 8081...
+#11 111.4 crypto/elliptic
+92f810c3246b18a5d7ac01e06243eede2ce50dc6e3bb61040f84667a4a93801d
+#11 116.9 crypto/internal/bigmod
+#11 117.6 crypto/internal/boring/bbig
+#11 118.3 encoding/asn1
+#11 118.8 crypto/ed25519
+Checking container status...
+92f810c3246b   duang-backend   "./duang-backend"   9 seconds ago   Up Less than a second   0.0.0.0:8081->8081/tcp   duang-backend
+#11 120.3 crypto/rsa
+#11 123.8 crypto/dsa
+#11 124.7 vendor/golang.org/x/text/secure/bidirule
+#11 124.9 vendor/golang.org/x/net/http2/hpack
+#11 125.3 vendor/golang.org/x/crypto/cryptobyte
+#11 125.3 crypto/x509/pkix
+#11 126.1 vendor/golang.org/x/net/idna
+#11 126.4 mime
+#11 127.3 crypto/ecdsa
+#11 128.1 mime/quotedprintable
+#11 130.4 net/http/internal
+#11 131.0 net/http/internal/ascii
+#11 131.1 encoding/xml
+#11 131.2 flag
+#11 131.2 github.com/gin-gonic/gin/internal/json
+#11 131.4 golang.org/x/net/html
+#11 132.5 hash/adler32
+#11 132.7 compress/zlib
+#11 133.2 debug/dwarf
+#11 138.9 internal/saferio
+#11 139.2 encoding/csv
+#11 140.3 github.com/gabriel-vasile/mimetype/internal/charset
+#11 140.4 github.com/gabriel-vasile/mimetype/internal/json
+#11 140.7 github.com/go-playground/locales
+#11 140.9 github.com/go-playground/universal-translator
+#11 140.9 github.com/leodido/go-urn
+#11 141.4 debug/macho
+#11 142.4 golang.org/x/crypto/sha3
+#11 142.6 crypto/x509
+#11 142.6 net/textproto
+#11 143.7 vendor/golang.org/x/net/http/httpproxy
+#11 143.9 vendor/golang.org/x/net/http/httpguts
+#11 144.9 mime/multipart
+#11 145.1 github.com/gabriel-vasile/mimetype/internal/magic
+#11 146.8 golang.org/x/text/internal/tag
+#11 146.8 regexp/syntax
+#11 147.6 golang.org/x/text/internal/language
+#11 149.8 github.com/gabriel-vasile/mimetype
+#11 150.5 regexp
+#11 150.5 crypto/tls
+#11 153.1 golang.org/x/text/internal/language/compact
+#11 153.6 github.com/pelletier/go-toml/v2/internal/danger
+#11 153.7 encoding/gob
+#11 153.7 github.com/pelletier/go-toml/v2/unstable
+#11 153.8 golang.org/x/text/language
+#11 154.9 github.com/pelletier/go-toml/v2/internal/tracker
+#11 155.3 github.com/pelletier/go-toml/v2
+#11 155.4 github.com/go-playground/validator/v10
+#11 158.7 go/token
+#11 161.4 html
+#11 161.5 net/http/httptrace
+#11 162.0 text/template/parse
+#11 162.5 net/http
+#11 162.6 hash/fnv
+#11 162.9 google.golang.org/protobuf/internal/detrand
+#11 163.4 google.golang.org/protobuf/internal/errors
+#11 164.1 google.golang.org/protobuf/encoding/protowire
+#11 165.5 google.golang.org/protobuf/reflect/protoreflect
+#11 166.9 text/template
+#11 172.6 google.golang.org/protobuf/internal/encoding/messageset
+#11 172.7 google.golang.org/protobuf/internal/genid
+#11 173.3 google.golang.org/protobuf/internal/order
+#11 173.4 google.golang.org/protobuf/internal/strs
+#11 173.7 google.golang.org/protobuf/reflect/protoregistry
+#11 174.1 google.golang.org/protobuf/runtime/protoiface
+#11 174.4 gopkg.in/yaml.v3
+#11 175.0 google.golang.org/protobuf/proto
+#11 175.1 html/template
+#11 177.8 golang.org/x/sys/unix
+#11 180.1 golang.org/x/text/transform
+#11 181.6 golang.org/x/text/unicode/bidi
+#11 182.8 golang.org/x/text/unicode/norm
+#11 188.0 golang.org/x/text/secure/bidirule
+#11 194.4 golang.org/x/net/http2/hpack
+#11 201.4 golang.org/x/net/idna
+#11 203.6 github.com/mattn/go-isatty
+#11 204.2 golang.org/x/net/http/httpguts
+#11 204.7 github.com/gin-contrib/sse
+#11 204.7 net/rpc
+#11 204.7 github.com/gorilla/websocket
+#11 204.7 golang.org/x/net/http2
+#11 205.1 net/http/httputil
+#11 206.2 github.com/ugorji/go/codec
+#11 206.9 duang_file/comm
+#11 207.2 duang_file/handler
+time="2025-07-23T17:21:00+08:00" level=error msg="got 3 SIGTERM/SIGINTs, forcing shutdown"
+#11 CANCELED
+ERROR: failed to solve: Canceled: context canceled

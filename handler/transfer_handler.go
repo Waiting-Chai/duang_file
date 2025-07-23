@@ -30,6 +30,8 @@ func (h *TransferHandler) HandleMessage(client *comm.WebSocketClient, message co
 		// 收到获取客户端列表的请求，立即广播客户端列表
 		log.Printf("收到获取客户端列表请求，立即广播")
 		h.WsManager.BroadcastClientList()
+	case "broadcastMessage":
+		h.handleBroadcast(client, message)
 	default:
 		// 对于非信令消息，可以选择记录日志或直接忽略
 		log.Printf("忽略非信令消息: %s", message.Type)
@@ -70,6 +72,16 @@ func (h *TransferHandler) forwardMessage(client *comm.WebSocketClient, message c
 	if err := h.WsManager.Send(targetID, jsonMessage); err != nil {
 		log.Printf("转发消息给 %s 失败: %v", targetID, err)
 	}
+}
+
+// handleBroadcast 处理广播消息
+func (h *TransferHandler) handleBroadcast(client *comm.WebSocketClient, message comm.WebSocketMessage) {
+	jsonMessage, err := json.Marshal(message)
+	if err != nil {
+		log.Printf("序列化广播消息失败: %v", err)
+		return
+	}
+	h.WsManager.Broadcast(jsonMessage)
 }
 
 // mapToStruct 是一个辅助函数，用于将 map[string]interface{} 转换为结构体
