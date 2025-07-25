@@ -1,6 +1,9 @@
 # Duang File - 局域网文件传输工具后端
 
 ## 概述
+
+前端仓库地址: [duang_file_web](https://github.com/Waiting-Chai/duang_file_web)
+
 这是一个Go后端项目，使用Gin框架实现局域网内文件传输、WebSocket信令转发和广播功能。支持WebRTC文件传输、客户端列表广播和消息广播。
 
 ## 安装
@@ -47,4 +50,19 @@
     └── device.go      # 设备模型
 ```
 
-更多细节见代码注释。
+## 应用截图
+
+### 主界面
+![主界面](./screenshots/screenshot-main.png)
+
+### 文件发送确认
+![文件发送确认](./screenshots/screenshot-confirm-transfer.png)
+
+### 文件接收请求
+![文件接收请求](./screenshots/screenshot-receive-request.png)
+
+### 广播消息
+![广播消息](./screenshots/screenshot-broadcast.png)
+
+### 登录页面
+![登录页面](./screenshots/screenshot-login.png)
