@@ -24,7 +24,7 @@ func (h *TransferHandler) HandleMessage(client *comm.WebSocketClient, message co
 	log.Printf("接收到客户端 %s 的消息，类型: %s", client.ID, message.Type)
 
 	switch message.Type {
-	case "webrtc_signal", "file_transfer_request", "file_transfer_response":
+	case "webrtc_signal", "file_transfer_request", "file_transfer_response", "file_transfer_ready", "file_transfer_ready_ack":
 		h.forwardMessage(client, message)
 	case "get_client_list":
 		// 收到获取客户端列表的请求，立即广播客户端列表
