@@ -12,7 +12,7 @@
 3. 运行 `go mod tidy` 安装依赖。
 
 ## 运行
-- 执行 `go run main.go` 启动服务器于端口8081。
+- 执行 `go run main.go` 启动服务器于端口8081。  
 - 访问 http://localhost:8080/health 检查服务器状态。
 
 ## API 端点
